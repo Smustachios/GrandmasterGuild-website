@@ -26,7 +26,15 @@ body {
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
-    background-color: var(--beige);
+    background-color: var(--white);
+}
+
+h1 {
+    font-size: 34px;
+}
+h2 {
+    margin-top: 0;
+    padding-top: 0;
 }
 
 #introduction {
@@ -63,4 +71,24 @@ body {
     font-size: 18px;
     color: var(--beige);
     text-align: center;
+}
+
+#sign-up-button {
+    color: var(--d-blue);
+    border: 2px solid var(--red);
+    padding: 5px;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+#objective {
+    padding: 100px 200px;
+    display: inline-block;
+    width: 100%;
+    background-color: var(--ll-blue);
+}
+
+#footer {
+    display: flex;
+    background-color: var(--red);
 }
