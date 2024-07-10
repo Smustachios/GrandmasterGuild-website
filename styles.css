@@ -41,6 +41,7 @@ body {
 .intro-box {
     margin: 25px 0;
     min-width:25%;
+    max-width: 25%;
     min-height: 300px;
     border: 6px solid var(--ll-blue);
     background-color: var(--white);
@@ -53,6 +54,7 @@ body {
 
 .intro-box p {
     padding-left: 15px;
+    padding-right: 15px;
     font-size: 18px;
 }
 
