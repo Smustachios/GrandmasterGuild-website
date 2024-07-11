@@ -12,38 +12,75 @@ body {
     margin: 0;
 }
 
+/* line */
+.line {
+    background-color: var(--red);
+    height: 5px;
+}
+
+.line-icon {
+    position: relative;
+    top: -500%;
+    left: 49%;
+    max-width: 50px;
+    display: inline;
+}
+
+/* nav-bar */
 #nav-bar {
     position: fixed;
-    top:0;
+    top: 0;
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
+    height: 75px;
     background-color: var(--red);
     color: var(--beige);
 }
 
+#nav-header {
+    margin: 0;
+    padding: 25px;
+}
+
+nav {
+    padding-top: 25px;
+    padding-right: 20px;
+}
+
+nav a {
+    padding-right: 20px;
+}
+
+/* header */
 #header {
+    height: 400px;
     padding-top: 200px;
     padding-bottom: 200px;
     text-align: center;
     background-color: var(--white);
+    background-image: url("Assets/pawns_background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 0 1cm;
 }
 
 h1 {
-    font-size: 34px;
+    font-size: 44px;
 }
-h2 {
+h2:not(#nav-header) {
+    color: var(--red);
     margin-top: 0;
     padding-top: 0;
 }
 
+/* introduction info */
 #introduction {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 10%;
     background-color: var(--l-blue);
-
 }
 
 .intro-box {
@@ -53,6 +90,7 @@ h2 {
     min-height: 300px;
     border: 6px solid var(--ll-blue);
     background-color: var(--white);
+    border-radius: 5px;
 }
 
 .intro-box h3 {
@@ -61,9 +99,10 @@ h2 {
 }
 
 .intro-box p {
-    padding-left: 15px;
-    padding-right: 15px;
-    font-size: 18px;
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 22px;
 }
 
 #sign-up {
@@ -81,13 +120,15 @@ h2 {
     cursor: pointer;
 }
 
+/* objective */
 #objective {
     padding: 100px 200px;
-    display: inline-block;
-    width: 100%;
+    display: block;
+    width: 100;
     background-color: var(--ll-blue);
 }
 
+/* footer */
 #footer {
     display: flex;
     background-color: var(--red);
