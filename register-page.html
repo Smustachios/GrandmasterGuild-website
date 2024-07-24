@@ -5,6 +5,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="reg-page-styles.css">
         <!--Logos-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
         <!--Fonts-->
@@ -17,15 +18,49 @@
     </head>
     <body>
         <main>
-            <section id="nav-bar">
+            <div id="nav-bar">
                 <h2 class="libre-franklin-header" id="nav-header">Grandmasters Guild</h2>
                 <nav>
                     <a>Register</a>
                     <a>Log in</a>
                     <a>About</a>
                 </nav>
-            </section>
-            <section id="footer">
+            </div>
+            
+            <div id="registration">
+                <div id="reg-box">
+                    <div id="reg-tabs">
+                        <button class="reg-tab">INFO</button>
+                        <button class="reg-tab">CHOOSE PLAN</button>
+                        <button class="reg-tab">PAYMENT</button>
+                        <button class="reg-tab">CONFIRM</button>
+                    </div>
+                    <div id="reg-inputs">
+                        <form id="info-form">
+                            <label class="info-label" for="f-name">First Name</label>
+                            <input class="info-input" type="text" id="f-name">
+                            
+                            <label class="info-label" for="l-name">Last Name</label>
+                            <input class="info-input" type="text" id="l-name">
+                            
+                            <label class="info-label" for="email">Email</label>
+                            <input class="info-input" type="text" id="email">
+                            
+                            <label class="info-label" for="password">Password</label>
+                            <input class="info-input" type="password" id="password">
+                            
+                            <label class="info-label" for="r-password">Repeat Password</label>
+                            <input class="info-input" type="password" id="r-password">
+                         </form>
+                    </div>
+                    <div id="nav-buttons">
+                        <button id="previous-button" class="nav-button">&lt;&lt;&lt;</button>
+                        <button id="next-button" class="nav-button">&gt;&gt;&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer">
                 <div id="links">
                     <a href="https://facebook.com/" target="_blank" class="btn contact-details"><i class="fab fa-facebook-square"></i> Facebook</a>
                     <a href="https://instagram.com/" target="_blank" class="btn contact-details"><i class="fab fa-brands fa-instagram"></i> Instagram</a>
@@ -33,7 +68,9 @@
                 </div>
                 <h2 class="libre-franklin-header" id="footer-header">Grandmasters Guild</h2>
                 <p>Grandmasters Guild all rights reserved &copy;</p>
-            </section>
+            </div>
         </main>
+        <script src="tabBox.js"></script>
+
     </body>
 </html>
