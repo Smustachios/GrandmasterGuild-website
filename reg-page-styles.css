@@ -24,8 +24,20 @@
     border: none;
     min-width: 200px;
     padding: 10px 0;
+    background-color: var(--white);
+}
+
+.first-tab{
+    clip-path: polygon(0% 0%, 90% 0%, 100% 100%, 0% 100%);
+    background-color: var(--white);
+    border: 2px solid black;
+}
+
+.tab-button {
+    background-color: var(--d-blue);
+    border: none;
+    padding: 10px 0;
     font-weight: bold;
-    border-bottom: 2px solid var(--d-blue);
 }
 
 #reg-inputs {

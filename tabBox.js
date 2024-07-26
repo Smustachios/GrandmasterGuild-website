@@ -1,9 +1,12 @@
 const previousTabButton = document.getElementById("previous-button");
 const nextTabButton = document.getElementById("next-button");
 const regInputs = document.getElementById("reg-inputs");
-let i = 0;
+const regTabs = document.getElementsByClassName("reg-tab");
 
-const regTabs = [
+let tabIndex = 0;
+
+
+const regTabsStrings = [
                 `<form id="info-form">
                      <label class="info-label" for="f-name">First Name</label>
                      <input class="info-input" type="text" id="f-name">
@@ -54,7 +57,7 @@ const regTabs = [
                                     <li>Description 4</li>
                                 </ul>
                                 <input id="grandmaster-pick" type="radio">
-                                <label for="grandmaster-pick">5.99$ Per month</label>
+                                <label for="grandmaster-pick">49.55$ Per month</label>
                             </div>
                         </form>`,
                  `<form id="card-form">
@@ -70,17 +73,17 @@ const regTabs = [
                 ]
 
 const changeTab = (isForward) => {
-    isForward ? i++ : i--;
-    if (i >= regTabs.length){
-        i = 0;
+    isForward ? tabIndex++ : tabIndex--;
+    if (tabIndex >= regTabsStrings.length){
+        tabIndex = 0;
     }
-    else if (i < 0){
-        i = regTabs.length - 1;
+    else if (tabIndex < 0){
+        tabIndex = regTabsStrings.length - 1;
     }
 
     regInputs.innerHTML = "";
 
-    regInputs.innerHTML = regTabs[i];
+    regInputs.innerHTML = regTabsStrings[tabIndex];
 
     console.log("change tab");
 }
