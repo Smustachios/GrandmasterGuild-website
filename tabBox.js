@@ -15,6 +15,7 @@ let user = {
     lastName: "",
     email: "",
     password: "",
+    repeatPassword: "",
     userPlan: 0,
     cardNumber: 0,
     nameOnCard: "",
@@ -24,7 +25,7 @@ let user = {
 const regTabsStrings = [
                 `<form id="info-form">
                      <label class="info-label" for="firstName">First Name</label>
-                     <input class="info-input user-input" type="text" id="firstName" value="${user.fName}">
+                     <input class="info-input user-input" type="text" id="firstName" value="${user.firstName}">
                      
                      <label class="info-label" for="lastName">Last Name</label>
                      <input class="info-input user-input" type="text" id="lastName" value="${user.lastName}">
@@ -89,7 +90,7 @@ const regTabsStrings = [
                         <div id="confirm-container">
                             <div class="confirm-section">
                                 <h4>First Name</h4>
-                                <p>${user.fName}</p>
+                                <p>${user.firstName}</p>
                                 <h4>Last Name</h4>
                                 <p>${user.lastName}</p>
                                 <h4>Email</h4>
@@ -112,6 +113,8 @@ const regTabsStrings = [
                     </div>`
                 ]
 
+
+regInputs.innerHTML = regTabsStrings[tabIndex];
 
 function changeTab(){
     regInputs.innerHTML = "";
@@ -175,7 +178,8 @@ const fetchFields = () => {
     }
 
     for (let i = 0; i < userInputs.length; ++i){
-        user[userInputs[i].id] = userInputs[i].nodeValue;
+        user[userInputs[i].id] = userInputs[i].value;
+        console.log(user[userInputs[i].id]);
     }
 }
 
