@@ -4,6 +4,7 @@
 
 #registration {
     height: 90vh;
+    min-height: 1000px;
     background-color: var(--l-blue);
 }
 
@@ -44,8 +45,8 @@
 }
 
 #reg-inputs {
-    min-height: 600px;
-    max-height: 600px;
+    min-height: 400px;
+    max-height: 400px;
     padding-top: 25px;
 }
 
@@ -86,7 +87,7 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 .nav-button {
@@ -103,14 +104,14 @@
 
 #confirm-container h4 {
     text-align: center;
-    padding-bottom: 5px;
+    padding-bottom: 4px;
 }
 
 #confirm-container p {
     text-align: center;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
 }
 
 .confirm-section {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 }
