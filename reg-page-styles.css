@@ -46,7 +46,7 @@
 
 #reg-inputs {
     min-height: 400px;
-    max-height: 400px;
+    max-height: 500px;
     padding-top: 25px;
 }
 
@@ -114,4 +114,8 @@
 
 .confirm-section {
     padding-bottom: 20px;
+}
+
+#reg-button {
+    margin: 10px;
 }

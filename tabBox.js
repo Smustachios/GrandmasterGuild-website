@@ -5,11 +5,7 @@ const regTabs = document.getElementsByClassName("reg-tab");
 const bottomBorderString = "2px solid var(--d-blue)";
 
 let currentTab = regTabs[0];
-currentTab.style.borderBottom = "none";
-
 let tabIndex = 0;
-
-
 let user = {
     firstName: "",
     lastName: "",
@@ -22,36 +18,38 @@ let user = {
     ccv: 0
 }
 
-const regTabsStrings = [
-                `<form id="info-form">
+const getTabHTML = (userData, tabIndex) => {
+    switch (tabIndex) {
+        case 0:
+            return `<form id="info-form">
                      <label class="info-label" for="firstName">First Name</label>
-                     <input class="info-input user-input" type="text" id="firstName" value="${user.firstName}">
+                     <input class="info-input user-input" type="text" id="firstName" value="${userData.firstName}">
                      
                      <label class="info-label" for="lastName">Last Name</label>
-                     <input class="info-input user-input" type="text" id="lastName" value="${user.lastName}">
+                     <input class="info-input user-input" type="text" id="lastName" value="${userData.lastName}">
                      
                      <label class="info-label" for="email">Email</label>
-                     <input class="info-input user-input" type="text" id="email" value="${user.email}">
+                     <input class="info-input user-input" type="text" id="email" value="${userData.email}">
                      
                      <label class="info-label" for="password">Password</label>
-                     <input class="info-input user-input" type="password" id="password" value="${user.password}">
+                     <input class="info-input user-input" type="password" id="password" value="${userData.password}">
                      
-                     <label class="info-label" for="r-password">Repeat Password</label>
-                     <input class="info-input" type="password" id="r-password" value="${user.repeatPassword}">
-                  </form>`,
-                 `<form id="plan-form">
-                            <div id="ordinary-plan">
-                                <h3>Ordinary plan</h3>
+                     <label class="info-label" for="repeatPassword">Repeat Password</label>
+                     <input class="info-input user-input" type="password" id="repeatPassword" value="${userData.repeatPassword}">
+                  </form>`;
+        case 1:
+            return `<form id="plan-form">
+                        <div id="ordinary-plan">
+                            <h3>Ordinary plan</h3>
                                 <ul>
                                     <li>Description 1</li>
                                     <li>Description 2</li>
                                     <li>Description 3</li>
                                     <li>Description 4</li>
                                 </ul>
-                                <input class="user-input" id="ordinary-pick" type="radio" name="user-plan" ${user.userPlan === 0 ? "checked" : ""}>
+                                <input class="user-input" id="ordinary-pick" type="radio" name="user-plan" ${userData.userPlan === 0 ? "checked" : ""}>
                                 <label for="ordinary-pick">5.99$ Per month</label>
                             </div>
-
                             <div id="premium-plan">
                                 <h3>Premium plan</h3>
                                 <ul>
@@ -60,10 +58,9 @@ const regTabsStrings = [
                                     <li>Description 3</li>
                                     <li>Description 4</li>
                                 </ul>
-                                <input class="user-input" id="premium-pick" type="radio" name="user-plan" ${user.userPlan === 1 ? "checked" : ""}>
+                                <input class="user-input" id="premium-pick" type="radio" name="user-plan" ${userData.userPlan === 1 ? "checked" : ""}>
                                 <label for="premium-pick">24.99$ Per month</label>
                             </div>
-
                             <div id="grandmaster-plan">
                                 <h3>Grandmaster plan</h3>
                                 <ul>
@@ -72,53 +69,57 @@ const regTabsStrings = [
                                     <li>Description 3</li>
                                     <li>Description 4</li>
                                 </ul>
-                                <input class="user-input" id="grandmaster-pick" type="radio" name="user-plan" ${user.userPlan === 2 ? "checked" : ""}>
+                                <input class="user-input" id="grandmaster-pick" type="radio" name="user-plan" ${userData.userPlan === 2 ? "checked" : ""}>
                                 <label for="grandmaster-pick">49.55$ Per month</label>
                             </div>
-                        </form>`,
-                 `<form id="card-form">
-                     <label class="info-label" for="cardNumber">Card number</label>
-                     <input class="info-input user-input" type="number" id="cardNumber" value="${user.cardNumber}">
-                     
-                     <label class="info-label" for="nameOnCard">Name on the card</label>
-                     <input class="info-input user-input" type="text" id="nameOnCard" value="${user.nameOnCard}">
-                     
-                     <label class="info-label" for="ccv">CCV</label>
-                     <input class="info-input user-input" type="number" id="ccv" value="${user.ccv}">
-                  </form>`,
-                  `
-                        <div id="confirm-container">
+                        </div>
+                    </form>`;
+        case 2:
+            return `<form id="card-form">
+                        <label class="info-label" for="cardNumber">Card number</label>
+                        <input class="info-input user-input" type="number" id="cardNumber" value="${userData.cardNumber}">
+                        <label class="info-label" for="nameOnCard">Name on the card</label>
+                        <input class="info-input user-input" type="text" id="nameOnCard" value="${userData.nameOnCard}"> 
+                        <label class="info-label" for="ccv">CCV</label>
+                        <input class="info-input user-input" type="number" id="ccv" value="${userData.ccv}">
+                    </form>`;
+        case 3:
+            return `<div id="confirm-container">
                             <div class="confirm-section">
                                 <h4>First Name</h4>
-                                <p>${user.firstName}</p>
+                                <p>${userData.firstName}</p>
                                 <h4>Last Name</h4>
-                                <p>${user.lastName}</p>
+                                <p>${userData.lastName}</p>
                                 <h4>Email</h4>
-                                <p>${user.email}</p>
+                                <p>${userData.email}</p>
                                 <h4>Password</h4>
-                                <p>${user.password}</p>
+                                <p>${userData.password}</p>
                             </div>
                             <div class="confirm-section">
                                 <h4>Your plan</h4>
-                                <p>${getPlanName(user.userPlan)}</p>
+                                <p>${getPlanName(userData.userPlan)}</p>
                             </div>
                             <div class="confirm-section">
                                 <h4>Payment card</h4>
                                 <p>${user.cardNumber}</p>
                                 <h4>Payment Amount</h4>
-                                <p>${getPlanPrice(user.userPlan)}</p>
+                                <p>${getPlanPrice(userData.userPlan)}</p>
                             </div>
-                            <button>REGISTER</button>
+                            <button id="reg-button" onclick="regUser()">REGISTER</button>
                         </div>
-                    </div>`
-                ]
+                    </div>`;
+        default:
+            console.log("tab does not exist");
+            return "";
+    }
+}
 
-
-regInputs.innerHTML = regTabsStrings[tabIndex];
+currentTab.style.borderBottom = "none";
+regInputs.innerHTML = getTabHTML(user, tabIndex);
 
 function changeTab(){
     regInputs.innerHTML = "";
-    regInputs.innerHTML = regTabsStrings[tabIndex];
+    regInputs.innerHTML = getTabHTML(user, tabIndex);
     currentTab.style.borderBottom = bottomBorderString;
     currentTab = regTabs[tabIndex];
     currentTab.style.borderBottom = "none";
@@ -144,7 +145,7 @@ function getPlanPrice(planIndex){
 
 const changeTabForward = () => {
     ++tabIndex;
-    if (tabIndex >= regTabsStrings.length){
+    if (tabIndex >= regTabs.length){
         tabIndex = 0;
     }
 
@@ -155,7 +156,7 @@ const changeTabForward = () => {
 const changeTabBackward = () => {
     --tabIndex;
     if (tabIndex < 0){
-        tabIndex = regTabsStrings.length - 1;
+        tabIndex = regTabs.length - 1;
     }
 
     fetchFields();
@@ -163,12 +164,12 @@ const changeTabBackward = () => {
 }
 
 const fetchFields = () => {
-    if (tabIndex >= regTabsStrings.length)
+    if (tabIndex >= regTabs.length)
         return;
 
     const userInputs = regInputs.children[0].getElementsByClassName("user-input");
 
-    if (tabIndex === 1){
+    if (tabIndex === 2){
         for (let i = 0; i < userInputs.length; ++i){
             if (userInputs[i].checked){
                 user.userPlan = i;
@@ -181,6 +182,10 @@ const fetchFields = () => {
         user[userInputs[i].id] = userInputs[i].value;
         console.log(user[userInputs[i].id]);
     }
+}
+
+function regUser(){
+    alert("user registered");
 }
 
 previousTabButton.addEventListener("click", changeTabBackward);
