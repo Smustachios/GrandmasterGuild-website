@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+}
+
+#description {
+    height: 700px;
+    background-color: var(--d-blue);
+    color: var(--white);
+}
+
+#description-header {
+    padding-top: 150px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#description p {
+    margin: 50px auto;
+    max-width: 40%;
+    font-size: 22px;
+}
+
+#plans {
+    background-color: var(--beige);
+}
+
+#plans-flex {
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.plan-box {
+    min-width: 25%;
+    border: 5px solid var(--l-blue);
+}
+
+#mission{
+    height: 600px;
+    background-color: var(--d-blue);
+}

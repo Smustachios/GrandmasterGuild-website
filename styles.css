@@ -1,5 +1,5 @@
 :root {
-    --l-blue: #274265;
+--l-blue: #274265;
     --ll-blue: #7cc0cd;
     --beige: #e4dad0;
     --red: #b02d27;
@@ -49,14 +49,13 @@ body {
 
 nav {
     padding-top: 25px;
-    padding-right: 20px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
-nav a {
-    padding-right: 20px;
-    font-weight: 500;
-    font-size: 18px;
+#nav-bar a {
     text-decoration: none;
+    padding-right: 20px;
     color: var(--beige);
 }
 

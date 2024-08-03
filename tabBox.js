@@ -7,15 +7,15 @@ const bottomBorderString = "2px solid var(--d-blue)";
 let currentTab = regTabs[0];
 let tabIndex = 0;
 let user = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    repeatPassword: "",
+    firstName: "John",
+    lastName: "Doe",
+    email: "john@test.com",
+    password: "1234",
+    repeatPassword: "1234",
     userPlan: 0,
-    cardNumber: 0,
-    nameOnCard: "",
-    ccv: 0
+    cardNumber: 1234123412341234,
+    nameOnCard: "Armin",
+    ccv: 123
 }
 
 const getTabHTML = (userData, tabIndex) => {
@@ -79,7 +79,7 @@ const getTabHTML = (userData, tabIndex) => {
                         <label class="info-label" for="cardNumber">Card number</label>
                         <input class="info-input user-input" type="number" id="cardNumber" value="${userData.cardNumber}">
                         <label class="info-label" for="nameOnCard">Name on the card</label>
-                        <input class="info-input user-input" type="text" id="nameOnCard" value="${userData.nameOnCard}"> 
+                        <input class="info-input user-input" type="text" id="nameOnCard" value="${userData.nameOnCard}">
                         <label class="info-label" for="ccv">CCV</label>
                         <input class="info-input user-input" type="number" id="ccv" value="${userData.ccv}">
                     </form>`;
@@ -149,7 +149,12 @@ const changeTabForward = () => {
         tabIndex = 0;
     }
 
-    fetchFields();
+    let value = fetchFields();
+    if (value > 0) {
+        --tabIndex;
+        return;
+    }
+
     changeTab();
 }
 
@@ -159,13 +164,18 @@ const changeTabBackward = () => {
         tabIndex = regTabs.length - 1;
     }
 
-    fetchFields();
+    let value = fetchFields();
+    if (value > 0){
+        ++tabIndex;
+        return;
+    }
+    
     changeTab();
 }
 
 const fetchFields = () => {
     if (tabIndex >= regTabs.length)
-        return;
+        return 0;
 
     const userInputs = regInputs.children[0].getElementsByClassName("user-input");
 
@@ -173,15 +183,22 @@ const fetchFields = () => {
         for (let i = 0; i < userInputs.length; ++i){
             if (userInputs[i].checked){
                 user.userPlan = i;
-                return;
+                return 0;
             }
         }
     }
 
     for (let i = 0; i < userInputs.length; ++i){
+        if (userInputs[i].value === null || userInputs[i].value === ""){
+            alert(`${userInputs[i].id} cant be empty`);
+            return 1;
+        }
+
         user[userInputs[i].id] = userInputs[i].value;
         console.log(user[userInputs[i].id]);
     }
+
+    return 0;
 }
 
 function regUser(){
